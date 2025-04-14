@@ -1,7 +1,6 @@
 require("dotenv").config();
 const express = require("express");
 const serverless = require('serverless-http');
-const { swaggerUi, swaggerDocs } = require("./config/swagger");
 const cartRoutes = require("./routes/cartRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const productRoutes = require("./routes/productRoutes");
@@ -15,7 +14,7 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 
 // Swagger documentation route
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+// app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Routes
 app.use("/api/auth", authRoutes);
